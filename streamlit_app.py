@@ -46,7 +46,7 @@ if st.button("Submit"):
   basement, attic, garage, hasStorageRoom,
   hasGuestRoom, hasYard, hasPool, isNewBuilt, hasStormProtector]], columns=preds[:-1])
     X = X.replace(["Yes", "No"], [1, 0])
-    X['countFac']=X[boolean_cols].sum(axis=1)
+    X['countFac']=X[boolean_cols].sum()
     X.drop(boolean_cols, inplace=True)
 
     # Get prediction
