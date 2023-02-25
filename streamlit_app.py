@@ -43,7 +43,7 @@ if st.button("Submit"):
   floors, cityPartRange, numPrevOwners, made, isNewBuilt,
   hasStormProtector, basement, attic, garage, hasStorageRoom,
   hasGuestRoom]], columns=preds)
-    X.replace(["Yes", "No"], [1, 0])
+    X = X.replace(["Yes", "No"], [1, 0])
 
     # Get prediction
     prediction = model.predict(X)[0]
