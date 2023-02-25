@@ -18,12 +18,12 @@ garage = st.number_input("Enter garage size (in square meters):")
 cityCode = st.number_input("Enter building city code: ")
 cityPartRange = st.number_input("Enter city part range: ")
 
-isNewBuilt = st.number_input("Is this house newly built? (1 for yes, 0 for no)")
+isNewBuilt = st.selectbox("Is this house newly built?", ("Yes", "No"))
 
-hasYard = st.number_input("Does this house has a yard? (1 for yes, 0 for no):")
-hasPool = st.number_input("Does this house has a pool? (1 for yes, 0 for no):")
-hasStormProtector = st.number_input("Does this house has a storm protector? (1 for yes, 0 for no):")
-hasStorageRoom = st.number_input("Does this house has a storage room? (1 for yes, 0 for no):")
+hasYard = st.selectbox("Does this house has a yard?", ("Yes", "No"))
+hasPool = st.selectbox("Does this house has a pool?", ("Yes", "No"))
+hasStormProtector = st.selectbox("Does this house has a storm protector?", ("Yes", "No"))
+hasStorageRoom = st.selectbox("Does this house has a storage room?", ("Yes", "No"))
 hasGuestRoom = st.number_input("Enter number of guest rooms this house has:")
 
 preds = ['squareMeters', 'numberOfRooms', 'hasYard', 'hasPool',
@@ -43,6 +43,7 @@ if st.button("Submit"):
   floors, cityPartRange, numPrevOwners, made, isNewBuilt,
   hasStormProtector, basement, attic, garage, hasStorageRoom,
   hasGuestRoom]], columns=preds)
+    X.replace(["Yes", "No"], [1, 0])
 
     # Get prediction
     prediction = model.predict(X)[0]
