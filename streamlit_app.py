@@ -24,7 +24,7 @@ hasYard = st.number_input("Does this house has a yard? (1 for yes, 0 for no):")
 hasPool = st.number_input("Does this house has a pool? (1 for yes, 0 for no):")
 hasStormProtector = st.number_input("Does this house has a storm protector? (1 for yes, 0 for no):")
 hasStorageRoom = st.number_input("Does this house has a storage room? (1 for yes, 0 for no):")
-hasGuestRoom = st.number_input("Does this house has a guest room? (1 for yes, 0 for no):")
+hasGuestRoom = st.number_input("Enter number of guest rooms this house has:")
 
 preds = ['squareMeters', 'numberOfRooms', 'hasYard', 'hasPool',
  'floors', 'cityPartRange', 'numPrevOwners', 'made', 'isNewBuilt',
