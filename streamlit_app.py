@@ -41,9 +41,9 @@ if st.button("Submit"):
     model.load_model("model.bin")
 
     # Store inputs into dataframe
-    X = pd.DataFrame([[squareMeters, numberOfRooms, hasYard, hasPool,
-  floors, cityPartRange, numPrevOwners, made, isNewBuilt,
-  hasStormProtector, basement, attic, garage, hasStorageRoom,
+    X = pd.DataFrame([[squareMeters, numberOfRooms,
+  floors, cityPartRange, numPrevOwners, made,
+  basement, attic, garage, hasStorageRoom,
   hasGuestRoom]], columns=preds)
     X = X.replace(["Yes", "No"], [1, 0])
     X['countFac']=X[boolean_cols].sum(axis=1)
