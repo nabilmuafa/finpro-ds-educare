@@ -26,10 +26,12 @@ hasStormProtector = st.selectbox("Does this house has a storm protector?", ("Yes
 hasStorageRoom = st.selectbox("Does this house has a storage room?", ("Yes", "No"))
 hasGuestRoom = st.number_input("Enter number of guest rooms this house has:")
 
-preds = ['squareMeters', 'numberOfRooms', 'hasYard', 'hasPool',
- 'floors', 'cityPartRange', 'numPrevOwners', 'made', 'isNewBuilt',
- 'hasStormProtector', 'basement', 'attic', 'garage', 'hasStorageRoom',
- 'hasGuestRoom']
+boolean_cols = ['hasYard', 'hasPool', 'isNewBuilt', 'hasStormProtector']
+
+preds = ['squareMeters', 'numberOfRooms',
+ 'floors', 'cityPartRange', 'numPrevOwners', 'made',
+ 'basement', 'attic', 'garage', 'hasStorageRoom',
+ 'hasGuestRoom', 'countFac']
 
 # If button is pressed
 if st.button("Submit"):
@@ -44,6 +46,8 @@ if st.button("Submit"):
   hasStormProtector, basement, attic, garage, hasStorageRoom,
   hasGuestRoom]], columns=preds)
     X = X.replace(["Yes", "No"], [1, 0])
+    X['countFac']=X[boolean_cols].sum(axis=1)
+    X.drop(boolean_cols, inplace=True)
 
     # Get prediction
     prediction = model.predict(X)[0]
