@@ -31,7 +31,7 @@ boolean_cols = ['hasYard', 'hasPool', 'isNewBuilt', 'hasStormProtector']
 preds = ['squareMeters', 'numberOfRooms',
  'floors', 'cityPartRange', 'numPrevOwners', 'made',
  'basement', 'attic', 'garage', 'hasStorageRoom',
- 'hasGuestRoom', 'countFac']
+ 'hasGuestRoom', 'hasYard', 'hasPool', 'isNewBuilt', 'hasStormProtector', 'countFac']
 
 # If button is pressed
 if st.button("Submit"):
@@ -44,7 +44,7 @@ if st.button("Submit"):
     X = pd.DataFrame([[squareMeters, numberOfRooms,
   floors, cityPartRange, numPrevOwners, made,
   basement, attic, garage, hasStorageRoom,
-  hasGuestRoom]], columns=preds[:-1])
+  hasGuestRoom, hasYard, hasPool, isNewBuilt, hasStormProtector]], columns=preds[:-1])
     X = X.replace(["Yes", "No"], [1, 0])
     X['countFac']=X[boolean_cols].sum(axis=1)
     X.drop(boolean_cols, inplace=True)
